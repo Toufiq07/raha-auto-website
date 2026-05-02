@@ -10,48 +10,52 @@ const AutoSales: React.FC = () => {
   ];
 
   return (
-    <div className="w-full pb-32 pt-20 px-6 max-w-[1400px] mx-auto">
-      <div className="mb-16 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Auto Sale Listings {/* [cite: 236] */}</h1>
+    <div className="w-full pb-32 pt-20 px-6 max-w-[1400px] mx-auto overflow-hidden">
+      <div className="mb-16 text-center opacity-0 animate-fade-in-up">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Auto Sale Listings</h1>
         <p className="text-xl font-medium text-zoox-dark/70 max-w-2xl mx-auto">
-          Quality vehicles at honest prices. All cars have been inspected and are ready for the road. {/* [cite: 237] */}
+          Quality vehicles at honest prices. All cars have been inspected and are ready for the road.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12 mb-32">
+      <div className="grid md:grid-cols-2 gap-12 mb-32">
         {listings.map((car, index) => (
-          <div key={index} className="group cursor-pointer">
-            <div className="bg-gray-100 aspect-[4/3] rounded-[3rem] mb-8 overflow-hidden flex items-center justify-center relative shadow-sm group-hover:shadow-xl transition-all duration-500">
-               <span className="text-gray-400 font-bold tracking-widest uppercase text-sm">Image Placeholder</span>
+          <div 
+            key={index} 
+            className="group cursor-pointer opacity-0 animate-fade-in-up"
+            style={{ animationDelay: `${(index + 1) * 0.1}s` }}
+          >
+            <div className="bg-gray-100 aspect-[4/3] rounded-4xl mb-8 overflow-hidden relative shadow-sm group-hover:shadow-xl transition-all duration-500">
+               <img src={`/assets/car-${index}.jpg`} alt={car.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                <div className="absolute top-6 left-6 bg-white px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">
-                 {car.condition} {/* [cite: 244] */}
+                 {car.condition}
                </div>
             </div>
             <div className="flex justify-between items-start px-4">
               <div>
-                <h3 className="text-3xl font-bold mb-2">{car.name} {/* [cite: 242] */}</h3>
-                <p className="text-lg text-gray-500 font-medium">{car.mileage} • {car.trans} • {car.year} {/* [cite: 241] */}</p>
+                <h3 className="text-3xl font-bold mb-2">{car.name}</h3>
+                <p className="text-lg text-gray-500 font-medium">{car.mileage} • {car.trans} • {car.year}</p>
               </div>
               <div className="text-right">
-                <p className="text-3xl font-bold text-zoox-forest">{car.price} {/* [cite: 243] */}</p>
+                <p className="text-3xl font-bold text-zoox-forest">{car.price}</p>
               </div>
             </div>
             <div className="px-4 mt-8">
               <button className="w-full bg-zoox-dark text-white py-4 rounded-full font-bold tracking-widest uppercase hover:bg-black transition">
-                Inquire About This Vehicle {/* [cite: 245] */}
+                Inquire About This Vehicle
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="bg-zoox-taupe p-16 rounded-[3rem] text-center max-w-[1000px] mx-auto">
-        <h3 className="text-4xl font-bold mb-6">Looking for a specific vehicle? {/* [cite: 259] */}</h3>
+      <div className="bg-zoox-taupe p-16 rounded-[3rem] text-center max-w-[1000px] mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <h3 className="text-4xl font-bold mb-6">Looking for a specific vehicle?</h3>
         <p className="text-xl text-zoox-dark/70 mb-10">
-          Don't see what you're looking for? Contact us and we'll help you find the right car at the right price. {/* [cite: 260] */}
+          Don't see what you're looking for? Contact us and we'll help you find the right car at the right price.
         </p>
         <Link to="/contact-us" className="inline-block bg-zoox-dark text-white px-10 py-5 rounded-full font-bold tracking-widest uppercase hover:bg-black transition">
-          Contact Us {/* [cite: 261] */}
+          Contact Us
         </Link>
       </div>
     </div>
